@@ -1,0 +1,28 @@
+name: Build report
+description: I built OpenSlip hardware or flashed the firmware
+title: "[build] "
+labels: ["build"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you build or flash?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Firmware version (yellow badge)
+  - type: checkboxes
+    id: pills
+    attributes:
+      label: Phone UI pills
+      options:
+        - label: TMC ok
+        - label: Encoder live
+        - label: OLED on
+        - label: Motor enabled (only if you meant to)
+  - type: textarea
+    id: notes
+    attributes:
+      label: Power, OLED I2C line, photos, CSV

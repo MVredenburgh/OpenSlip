@@ -1,0 +1,12 @@
+build/
+.pio/
+.vscode/
+.idea/
+*.elf
+*.map
+*.bin
+!docs/assets/**
+Thumbs.db
+.DS_Store
+*.bak
+firmware/OpenSlip/build/
