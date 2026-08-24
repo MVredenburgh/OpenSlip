@@ -1,6 +1,7 @@
 // OpenSlip — open walkway traction meter firmware
-// Copyright 2026 Michael Vredenburgh and OpenSlip contributors
-// SPDX-License-Identifier: Apache-2.0
+// Copyright (C) 2026 Michael Vredenburgh and OpenSlip contributors
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Source: https://github.com/MVredenburgh/OpenSlip
 
 #include <Arduino.h>
 #include <WiFi.h>

@@ -20,11 +20,32 @@ TMC2209 will not enumerate on UART without V+. Firmware still boots Wi‑Fi/OTA 
 ## Motor
 
 - NEMA17 bipolar stepper, typical 1.8° / 200 steps/rev
-- Firmware uses 16 microsteps → 3200 steps/rev
+- Use **1/16 microstep** on the TMC2209 dips (firmware also sets 16 over UART). See the microstep note in this file.
 - Default RMS current **800 mA** (configurable). Factory T-Motor demos often use 2000 mA; that is hot and unnecessary for a mast.
 - Enable pin is **active low**. OpenSlip keeps the driver **disabled** until the UI arms it.
 
 Phase order (A+ A− B+ B−) varies by motor. Wrong order usually just runs poorly or backwards — use **Invert direction** rather than guessing current.
+
+### Microsteps: use 1/16
+
+Slip index is \(SI=\tan\theta\). We report 0.01. The steepest that gets (worst case, \(SI\approx 1\)) is about **0.29° of mast** per 0.01 SI. Near zero it is about 0.57° per 0.01 SI.
+
+A 1.8° NEMA17 at 1:1:
+
+| Setting | ° / pulse | vs 0.01 SI at SI=1 |
+| --- | --- | --- |
+| 1/8 | 0.225° | barely enough |
+| **1/16** | **0.1125°** | **~2.5 pulses per 0.01 SI** |
+| 1/32 | 0.056° | finer than needed |
+| 1/64 | 0.028° | same order as the MT6816 encoder (0.022°) |
+
+**The encoder is the metrology**, not the microstep table. 16384 counts/rev is already finer than 0.01 SI. Extra microsteps do not make better data once you are below encoder noise and mechanical backlash.
+
+TMC2209 also interpolates internally to 256, so 1/16 on the STEP pin is already smooth.
+
+**Speed:** more microsteps do **not** reduce motor torque-speed if you raise the step rate to match. They *do* reduce mechanical speed if firmware keeps a fixed 600 steps/s (1/64 would be 4× slower than 1/16). For a mast that only travels ~50°, even 1/64 is still a couple of seconds. Still use 1/16: better torque per pulse, matches the UART default, and does not waste step-rate headroom.
+
+Set the T-Motor dips to **1/16**. Firmware calls `microsteps(16)` over UART (`mstep_reg_select` is on).
 
 ## Encoder (MT6816)
 

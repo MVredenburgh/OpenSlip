@@ -1,5 +1,7 @@
 # Firmware notes
 
+License: AGPL-3.0-or-later. The phone UI must keep a link to the source repository.
+
 Sketch: `firmware/OpenSlip/`
 
 | Constant | Default |

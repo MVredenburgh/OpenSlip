@@ -19,6 +19,8 @@ The goal is a **reproducible, inspectable walkway traction meter** and an open m
 4. **Safety first.** Default motor disabled. Do not silently raise RMS current to 2 A.
 5. **Keep the first USB flash OTA-capable.** Partition scheme must remain an OTA layout (`min_spiffs` or equivalent). A `no_ota` factory image is a trap.
 
+PRs are accepted under AGPL-3.0 (same as the project). Do not contribute code you cannot license that way.
+
 ## Firmware PRs
 
 - Target `firmware/OpenSlip/`

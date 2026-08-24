@@ -1,5 +1,5 @@
 // OpenSlip phone UI (served from the device, no CDN)
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: AGPL-3.0-or-later
 #pragma once
 #include <Arduino.h>
 
@@ -139,6 +139,7 @@ th,td{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}
       <button class="pri" onclick="saveWifi()">Save and connect</button>
     </div>
     <p class="small">AP OpenSlip stays up so the phone UI and OTA still work in the field.</p>
+    <p class="small"><a href="https://github.com/MVredenburgh/OpenSlip" style="color:#e6b325">Source code (AGPL-3.0)</a></p>
   </div>
 </div>
 <script>

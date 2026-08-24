@@ -80,7 +80,9 @@ Open an issue. Send a pull request. Publish your builds and your raw numbers.
 
 ## License
 
-Apache License 2.0. You can use this commercially; you must keep attribution and the patent grant. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+[GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0). You may use OpenSlip commercially. If you distribute a modified device or let people use a modified version over a network, you must share your source under the same license. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+Hardware CAD, when it exists, is intended for [CERN-OHL-S](https://ohwr.org/project/cernohl) (strongly reciprocal hardware). Until CAD lands, this repo is firmware and documentation.
 
 ## Trademarks
 
